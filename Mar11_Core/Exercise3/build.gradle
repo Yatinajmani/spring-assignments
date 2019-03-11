@@ -1,0 +1,18 @@
+plugins {
+    id 'java'
+}
+
+group 'ttn.exercise2'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework:spring-core:5.0.6.RELEASE'
+    implementation 'org.springframework:spring-context:5.0.6.RELEASE'
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
