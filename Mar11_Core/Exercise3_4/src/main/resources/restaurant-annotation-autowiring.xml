@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+    <bean class="Tea" name="hotDrink">
+        <property name="name" value="Chai by Field"/>
+    </bean>
+
+    <bean class="Tea" name="hotDrink2">
+        <property name="name" value="Chai by Setter"/>
+    </bean>
+
+    <bean class="component.Restaurant" id="teaRestaurantBySetterAnnotation">
+        <property name="hotDrink" ref="hotDrink2"/>
+    </bean>
+
+    <bean class="Tea" name="hotDrink1">
+        <property name="name" value="Chai by Constructor"/>
+    </bean>
+    <bean class="component.Restaurant" id="teaRestaurantByAnnotation">
+        <constructor-arg name="hotDrink1" ref="hotDrink1">
+        </constructor-arg>
+    </bean>
+
+    <bean class="component.Restaurant" id="teaRestaurantByFieldAnnotation"/>
+
+    <context:component-scan base-package="component"/>
+    <context:annotation-config/>
+</beans>

@@ -4,27 +4,38 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans 
        http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-
-    <bean class="Tea" id="tea">
+    <bean class="Tea" id="tea" autowire-candidate="false">
         <property name="name" value="Chai"/>
     </bean>
 
-    <bean class="ExpressTea" id="expressTea">
+    <bean class="ExpressTea" id="expressTea" autowire-candidate="false">
         <property name="name" value="ExpressChai"/>
     </bean>
 
-    <bean class="Restaurant" id="teaRestaurant">
+    <bean class="component.Restaurant" id="teaRestaurant" autowire-candidate="false" scope="prototype">
         <property name="hotDrink" ref="tea"/>
     </bean>
 
     <alias name="teaRestaurant" alias="restaurant"/>
 
-    <bean class="Restaurant" id="expressTeaRestaurant">
-        <constructor-arg name="hotDrink">
-            <bean class="ExpressTea">
+    <bean class="component.Restaurant" id="expressTeaRestaurant">
+        <constructor-arg name="hotDrink1">
+            <bean class="ExpressTea" autowire-candidate="false">
                 <property name="name" value="ExpressChai"/>
             </bean>
         </constructor-arg>
+    </bean>
+
+    <bean class="component.Restaurant" id="teaRestaurantByConstructor" autowire="constructor"/>
+
+    <bean class="Tea" id="hotDrink1">
+        <property name="name" value="Chai By Constructor autowiring"/>
+    </bean>
+
+    <bean class="component.Restaurant" id="expressTeaRestaurantByName" autowire="byName"/>
+
+    <bean class="ExpressTea" id="hotDrink">
+        <property name="name" value="Express Chai By Name Autowiring"/>
     </bean>
 
 </beans>

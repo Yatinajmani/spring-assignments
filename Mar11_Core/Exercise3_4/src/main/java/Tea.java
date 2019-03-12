@@ -1,4 +1,6 @@
-public class Tea implements HotDrink{
+import component.HotDrink;
+
+public class Tea implements HotDrink {
 
     public String getName() {
         return name;
@@ -12,6 +14,6 @@ public class Tea implements HotDrink{
 
     @Override
     public String prepareHotDrink() {
-        return "Tea Prepared";
+        return getName() + " Prepared";
     }
 }
