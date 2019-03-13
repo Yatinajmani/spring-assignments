@@ -3,6 +3,7 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!-- Using Setter method to Initialize Database instance-->
     <bean class="Database" id="database">
         <property name="name" value="mysql"/>
         <property name="port" value="3306"/>

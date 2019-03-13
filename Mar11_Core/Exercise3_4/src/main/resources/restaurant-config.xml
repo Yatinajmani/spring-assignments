@@ -12,12 +12,14 @@
         <property name="name" value="ExpressChai"/>
     </bean>
 
+    <!--Setting scope prototype-->
     <bean class="component.Restaurant" id="teaRestaurant" autowire-candidate="false" scope="prototype">
         <property name="hotDrink" ref="tea"/>
     </bean>
 
     <alias name="teaRestaurant" alias="restaurant"/>
 
+    <!--Using Inner Bean-->
     <bean class="component.Restaurant" id="expressTeaRestaurant">
         <constructor-arg name="hotDrink1">
             <bean class="ExpressTea" autowire-candidate="false">
@@ -26,12 +28,14 @@
         </constructor-arg>
     </bean>
 
+    <!--Autowire by constructor-->
     <bean class="component.Restaurant" id="teaRestaurantByConstructor" autowire="constructor"/>
 
     <bean class="Tea" id="hotDrink1">
         <property name="name" value="Chai By Constructor autowiring"/>
     </bean>
 
+    <!--Autowire by Name-->
     <bean class="component.Restaurant" id="expressTeaRestaurantByName" autowire="byName"/>
 
     <bean class="ExpressTea" id="hotDrink">

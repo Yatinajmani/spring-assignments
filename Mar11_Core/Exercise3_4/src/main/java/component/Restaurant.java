@@ -1,12 +1,13 @@
 package component;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Required;
 import org.springframework.stereotype.Component;
 
 @Component("restaurantAnnotation")
 public class Restaurant {
-    @Autowired
+//    @Autowired
     HotDrink hotDrink;
 
     public Restaurant() {
@@ -16,8 +17,8 @@ public class Restaurant {
         return hotDrink;
     }
 
-    @Required
-    @Autowired
+//    @Required
+//    @Autowired
     public void setHotDrink(HotDrink hotDrink) {
         this.hotDrink = hotDrink;
     }

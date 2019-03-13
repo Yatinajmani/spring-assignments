@@ -18,6 +18,8 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class Application {
     public static void main(String[] args) {
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("restaurant-config.xml");
+
+        //Exercise 3,4
         HotDrink hotDrink = (HotDrink) applicationContext.getBean("tea");
         System.out.println(hotDrink.prepareHotDrink());
         HotDrink hotDrink1 = (HotDrink) applicationContext.getBean("expressTea");
@@ -26,39 +28,49 @@ public class Application {
         System.out.println(restaurant);
         Restaurant restaurant1 = (Restaurant) applicationContext.getBean("expressTeaRestaurant");
         System.out.println(restaurant1);
+
+
+        //Exercise 6 byConstructor
         Restaurant teaRestaurantByConstructor = (Restaurant) applicationContext.getBean("teaRestaurantByConstructor");
         System.out.println(teaRestaurantByConstructor);
+        //Exercise 6 byName
         Restaurant expressTeaRestaurantByName = (Restaurant) applicationContext.getBean("expressTeaRestaurantByName");
         System.out.println(expressTeaRestaurantByName);
 
-
         ApplicationContext applicationContextForTypeAutowiring =
                 new ClassPathXmlApplicationContext("restaurant-autowire-type-config.xml");
+        //Exercise 6 byType
         Restaurant teaRestaurantByType =
                 (Restaurant) applicationContextForTypeAutowiring.getBean("teaRestaurantByType");
         System.out.println(teaRestaurantByType);
 
+        //Exercise 7
         Restaurant teaRestaurant = (Restaurant) applicationContext.getBean("teaRestaurant");
         System.out.println("Checking prototype scope as references equality gives : " + (restaurant == teaRestaurant));
+
 
         ApplicationContext applicationContextForAnnotation =
                 new ClassPathXmlApplicationContext("restaurant-annotation-autowiring.xml");
 
+        //Exercise 8,9.1
         Restaurant teaRestaurantBySetterAnnotation =
                 (Restaurant) applicationContextForAnnotation.getBean("teaRestaurantBySetterAnnotation");
-        System.out.println("Using Setter Autowire" + teaRestaurantBySetterAnnotation);
+        System.out.println("Using Setter Autowire : " + teaRestaurantBySetterAnnotation);
 
+        //Exercise 9.2
         Restaurant teaRestaurantByFieldAnnotation =
                 (Restaurant) applicationContextForAnnotation.getBean("teaRestaurantByFieldAnnotation");
-        System.out.println("Using Field Autowire" + teaRestaurantByFieldAnnotation);
+        System.out.println("Using Field Autowire : " + teaRestaurantByFieldAnnotation);
 
+        //Exercise 9.3
         Restaurant teaRestaurantByAnnotation =
                 (Restaurant) applicationContextForAnnotation.getBean("teaRestaurantByAnnotation");
-        System.out.println("Using Constructor Autowire" + teaRestaurantByAnnotation);
+        System.out.println("Using Constructor Autowire : " + teaRestaurantByAnnotation);
 
+        //Exercise 10
         Restaurant restaurantAnnotation =
                 (Restaurant) applicationContextForAnnotation.getBean("restaurantAnnotation");
-        System.out.println("Using Component Annotation" + restaurantAnnotation);
+        System.out.println("Using Component Annotation : " + restaurantAnnotation);
 
     }
 }

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop.xsd">
+    <bean class="entity.Database" id="database">
+        <property name="name" value="mysql"/>
+        <property name="port" value="3306"/>
+    </bean>
+    <!--Exercise2-->
+    <!--Registering Spring events listener-->
+    <bean class="listener.MyEventListener"/>
+
+    <!--Exercise3-->
+    <!--Registering Custom events listener-->
+    <bean class="listener.CustomListener"/>
+
+    <!--Enables the use of components marked as Aspect and other related annotations-->
+    <aop:aspectj-autoproxy/>
+
+    <!--Exercise4-->
+    <!--Registering Logging Aspect as bean-->
+    <bean class="aspect.LoggingAspect"/>
+</beans>

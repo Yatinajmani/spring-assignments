@@ -4,29 +4,30 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-
     <bean class="Tea" name="hotDrink">
         <property name="name" value="Chai by Field"/>
     </bean>
+    <!--@Autowired by Field Name-->
+    <bean class="component.Restaurant" id="teaRestaurantByFieldAnnotation"/>
 
     <bean class="Tea" name="hotDrink2">
         <property name="name" value="Chai by Setter"/>
     </bean>
 
+    <!--HotDrink setter method in Restaurant class is Required-->
+    <!--@Autowired On Setter-->
     <bean class="component.Restaurant" id="teaRestaurantBySetterAnnotation">
-        <property name="hotDrink" ref="hotDrink2"/>
     </bean>
 
     <bean class="Tea" name="hotDrink1">
         <property name="name" value="Chai by Constructor"/>
     </bean>
+    <!--@Autowired by Constructor Argument Name-->
     <bean class="component.Restaurant" id="teaRestaurantByAnnotation">
-        <constructor-arg name="hotDrink1" ref="hotDrink1">
-        </constructor-arg>
     </bean>
 
-    <bean class="component.Restaurant" id="teaRestaurantByFieldAnnotation"/>
-
+    <!--For using annotation's like @Component and using them as beans-->
     <context:component-scan base-package="component"/>
+    <!--Registering annotations-->
     <context:annotation-config/>
 </beans>
