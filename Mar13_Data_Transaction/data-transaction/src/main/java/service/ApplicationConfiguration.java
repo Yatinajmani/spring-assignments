@@ -3,7 +3,6 @@ package service;
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Lazy;
 import org.springframework.context.annotation.Scope;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
@@ -15,7 +14,6 @@ import javax.sql.DataSource;
 import java.util.Properties;
 import java.util.logging.Logger;
 
-@Lazy
 @Configuration
 public class ApplicationConfiguration {
     private final String url = "jdbc:mysql://localhost:3306/springDemo";

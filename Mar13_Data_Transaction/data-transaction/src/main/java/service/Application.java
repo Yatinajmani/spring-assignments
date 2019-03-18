@@ -102,9 +102,13 @@ public class Application {
                 "timeout," +
                 "rollback-for," +
                 "no-rollback-for.");
+        //ReadOnly
         application.userRepo.insert2();
+        //Timeout
         application.userRepo.insert3();
+        //RollbackFor
         application.userRepo.insert4();
+        //NoRollbackFor
         application.userRepo.insert5();
     }
 }
