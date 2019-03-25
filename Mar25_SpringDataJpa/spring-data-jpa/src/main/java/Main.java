@@ -111,5 +111,9 @@ public class Main {
         System.out.println("Persons with name YATIN ignoring case : " + personRepository
                 .getByFirstNameIgnoreCase("YATIN"));
 
+//      Exercise 11
+        System.out.println("Persons with age greater than 24 sorted by descending order by id : " + personRepository
+                .findByAgeGreaterThanOrderByIdDesc(24));
+
     }
 }
