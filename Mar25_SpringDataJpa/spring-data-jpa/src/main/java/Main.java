@@ -2,6 +2,9 @@ import config.ApplicationConfiguration;
 import entity.Person;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import repository.PersonRepository;
 
 import java.util.Arrays;
@@ -112,8 +115,17 @@ public class Main {
                 .getByFirstNameIgnoreCase("YATIN"));
 
 //      Exercise 11
-        System.out.println("Persons with age greater than 24 sorted by descending order by id : " + personRepository
-                .findByAgeGreaterThanOrderByIdDesc(24));
+        System.out.println("Persons with age greater than 25 sorted by descending order by id : " + personRepository
+                .findByAgeGreaterThanOrderByIdDesc(25));
+
+//      Exercise 12
+        System.out.println("Persons with age greater than 25 sorted by descending order by id using sort class : "
+                + personRepository.findByAge(25, new Sort(Sort.Direction.DESC, "id")));
+
+//      Exercise 13
+        Page<Person> personPage = personRepository.findAll((new PageRequest(0, 2)));
+        System.out.println("Paginated Persons : " + personPage);
+        System.out.println(personPage.getContent());
 
     }
 }

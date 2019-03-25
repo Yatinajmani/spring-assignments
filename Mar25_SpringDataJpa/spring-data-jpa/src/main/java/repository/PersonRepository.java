@@ -1,6 +1,9 @@
 package repository;
 
 import entity.Person;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
@@ -27,6 +30,8 @@ import java.util.List;
  * In
  * IgnoreCase
  * 11.Get the persons greater than age 25 and sort them in descending order according to id by method query.
+ * 12.Do  the question above using the Sort class.
+ * 13.Apply Pagination on Person entities.
  */
 //  Exercise 2
 public interface PersonRepository extends CrudRepository<Person, Integer> {
@@ -76,4 +81,7 @@ public interface PersonRepository extends CrudRepository<Person, Integer> {
 
     List<Person> findByAgeGreaterThanOrderByIdDesc(Integer age);
 
+    List<Person> findByAge(Integer age,Sort sort);
+
+    Page<Person> findAll(Pageable pageable);
 }
