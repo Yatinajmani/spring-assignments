@@ -55,7 +55,7 @@ public interface PersonRepository extends CrudRepository<Person, Integer> {
     List<Person> findPersonWithAgeViaQuery();
 
     //  Exercise 9
-    @Query("select count(*) from Person where firstName='Peter'")
+    @Query("select count(p) from Person p where firstName='Peter'")
     Integer findPersonWithNamePeterViaQuery();
 
     //  Exercise 10
@@ -79,9 +79,12 @@ public interface PersonRepository extends CrudRepository<Person, Integer> {
 
     List<Person> getByFirstNameIgnoreCase(String firstName);
 
+    //  Exercise 11
     List<Person> findByAgeGreaterThanOrderByIdDesc(Integer age);
 
-    List<Person> findByAge(Integer age,Sort sort);
+    //  Exercise 12
+    List<Person> findByAgeGreaterThan(Integer age,Sort sort);
 
+    //  Exercise 13
     Page<Person> findAll(Pageable pageable);
 }

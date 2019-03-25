@@ -7,7 +7,7 @@ import javax.persistence.Id;
 
 
 /**
- * Create a Person entity with instance variables Firstname, Lastname, salary, age and Id.
+ * 1.Create a Person entity with instance variables Firstname, Lastname, salary, age and Id.
  */
 @Entity
 public class Person {

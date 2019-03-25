@@ -35,7 +35,7 @@ public class ApplicationConfiguration {
 
         Properties jpaProperties = new Properties();
         jpaProperties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQLDialect");
-        jpaProperties.setProperty("hibernate.show_sql", "true");
+        jpaProperties.setProperty("hibernate.show_sql", "false");
         jpaProperties.setProperty("hibernate.hbm2ddl.auto", "create-drop");
 
         entityManagerFactoryBean.setJpaProperties(jpaProperties);

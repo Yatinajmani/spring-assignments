@@ -24,19 +24,24 @@ public class Main {
 
 //      Exercise 3
 //      Using save(S entity)
-        personRepository.save(new Person("yatin", "ajmani", 24, 450000));
+        System.out.println("=====================Single Record Added=====================");
+        System.out.println(personRepository
+                .save(new Person("yatin", "ajmani", 24, 450000)));
 
 //      Using save(Iterable<S> entities)
         List<Person> people = Arrays.asList(new Person("yatin", "ajmani", 25, 430000),
                 new Person("harsh", "jain", 25, 420000),
                 new Person("fName", "lName", 24, 420000),
                 new Person("Peter", "parker", 26, 410000));
-        personRepository.save(people);
+        System.out.println("=====================Multiple Records Added=====================");
+        personRepository.save(people).forEach(System.out::println);
 
 //      Using findOne(ID id)
+        System.out.println("=====================Find one with id 1=====================");
         System.out.println(personRepository.findOne(1));
 
 //      Using exists(ID id)
+        System.out.println("=====================Exists with id 1=====================");
         System.out.println(personRepository.exists(1));
 
 //      Using findAll()
@@ -44,23 +49,32 @@ public class Main {
         personRepository.findAll().forEach(System.out::println);
 
 //      Using findAll(Iterable<ID> ids)
-        System.out.println("=====================Find All Records having ids 2,3,4.=====================");
+        System.out.println("=====================Find All Records having ids 2,3,4=====================");
         personRepository.findAll(people.stream().map(Person::getId).collect(Collectors.toList()))
                 .forEach(System.out::println);
+
 //      Using count()
         System.out.println("No. of Persons : " + personRepository.count());
 
 //      Using delete(ID id)
+        System.out.println("=====================Delete with id 4=====================");
         personRepository.delete(4);
+        personRepository.findAll().forEach(System.out::println);
 
 //      Using delete(T entity)
+        System.out.println("=====================Delete with id 1=====================");
         personRepository.delete(personRepository.findById(1));
+        personRepository.findAll().forEach(System.out::println);
 
 //      Using delete(Iterable<? extends T> entities)
+        System.out.println("=====================Delete using iterable with id 2,3=====================");
         personRepository.delete(Arrays.asList(people.get(0), people.get(1)));
+        personRepository.findAll().forEach(System.out::println);
 
 //      Using deleteAll()
+        System.out.println("=====================Delete All=====================");
         personRepository.deleteAll();
+        personRepository.findAll().forEach(System.out::println);
 
         personRepository.save(people);
 
@@ -120,7 +134,7 @@ public class Main {
 
 //      Exercise 12
         System.out.println("Persons with age greater than 25 sorted by descending order by id using sort class : "
-                + personRepository.findByAge(25, new Sort(Sort.Direction.DESC, "id")));
+                + personRepository.findByAgeGreaterThan(25, new Sort(Sort.Direction.DESC, "id")));
 
 //      Exercise 13
         Page<Person> personPage = personRepository.findAll((new PageRequest(0, 2)));
