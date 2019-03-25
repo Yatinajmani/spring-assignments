@@ -14,6 +14,19 @@ import java.util.List;
  * 7.Use @Query to fetch firstname and lastname of the Person whose age is 25.
  * 8.Get complete information of the Employee whose age is 25 using @Query.
  * 9.Count Person where name is "Peter" using @Query.
+ * 10.Implement following methods for Person repository:
+ * count
+ * distinct
+ * or
+ * and
+ * between
+ * LessThan
+ * GreaterThan
+ * Like
+ * Not
+ * In
+ * IgnoreCase
+ * 11.Get the persons greater than age 25 and sort them in descending order according to id by method query.
  */
 //  Exercise 2
 public interface PersonRepository extends CrudRepository<Person, Integer> {
@@ -40,4 +53,24 @@ public interface PersonRepository extends CrudRepository<Person, Integer> {
     @Query("select count(*) from Person where firstName='Peter'")
     Integer findPersonWithNamePeterViaQuery();
 
+    //  Exercise 10
+    Integer countAllByAge(Integer age);
+
+    List<Person> getDistinctByFirstNameOrAge(String fName, Integer age);
+
+    List<Person> getAllByFirstNameAndAge(String fName, Integer age);
+
+    List<Person> getByAgeBetween(Integer after, Integer before);
+
+    List<Person> getBySalaryLessThan(Integer salary);
+
+    List<Person> getBySalaryGreaterThan(Integer salary);
+
+    List<Person> getByFirstNameLike(String firstName);
+
+    List<Person> getByFirstNameNot(String firstName);
+
+    List<Person> getByFirstNameIn(List<String> firstNames);
+
+    List<Person> getByFirstNameIgnoreCase(String firstName);
 }

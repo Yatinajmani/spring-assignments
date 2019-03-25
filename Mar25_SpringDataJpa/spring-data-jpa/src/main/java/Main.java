@@ -80,5 +80,36 @@ public class Main {
 
 //      Exercise 9
         System.out.println("Persons with first Name = Peter : " + personRepository.findPersonWithNamePeterViaQuery());
+
+//      Exercise 10
+        System.out.println("Persons with age = 25, Using count : " + personRepository.countAllByAge(25));
+
+        System.out.println("Persons with age = 26 or firstName = yatin, Using distinct : " + personRepository
+                .getDistinctByFirstNameOrAge("yatin", 26));
+
+        System.out.println("Persons with age = 25 and firstName = yatin, Using distinct : " + personRepository
+                .getAllByFirstNameAndAge("yatin", 25));
+
+        System.out.println("Persons age between 25 and 28= yatin, Using distinct : " + personRepository
+                .getByAgeBetween(25, 28));
+
+        System.out.println("Persons salary less than 420000 : " + personRepository
+                .getBySalaryLessThan(420000));
+
+        System.out.println("Persons salary greater than 420000 : " + personRepository
+                .getBySalaryGreaterThan(420000));
+
+        System.out.println("Persons with name like yatin : " + personRepository
+                .getByFirstNameLike("yatin"));
+
+        System.out.println("Persons with name not like yatin : " + personRepository
+                .getByFirstNameNot("yatin"));
+
+        System.out.println("Persons with name not like yatin : " + personRepository
+                .getByFirstNameIn(Arrays.asList("yatin", "harsh")));
+
+        System.out.println("Persons with name YATIN ignoring case : " + personRepository
+                .getByFirstNameIgnoreCase("YATIN"));
+
     }
 }
