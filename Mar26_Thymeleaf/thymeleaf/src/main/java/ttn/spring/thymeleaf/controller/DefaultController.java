@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import ttn.spring.thymeleaf.entity.Employee;
 
+import java.util.Arrays;
+
 @Controller
 public class DefaultController {
     @GetMapping("/exercise1")
@@ -31,4 +33,12 @@ public class DefaultController {
         System.out.println(employee);
         return employee.toString();
     }
+
+    @GetMapping("/exercise4")
+    public String getEmployess(Model model) {
+        model.addAttribute("employees", Arrays.asList(new Employee("Yatin", 24, 954646511L)
+                , new Employee("Siddharth", 24, 9546465158L)));
+        return "Exercise4";
+    }
+
 }

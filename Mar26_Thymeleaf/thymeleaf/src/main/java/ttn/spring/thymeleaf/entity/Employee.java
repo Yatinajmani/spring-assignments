@@ -5,6 +5,15 @@ public class Employee {
     private Integer age;
     private Long contact;
 
+    public Employee(String name, Integer age, Long contact) {
+        this.name = name;
+        this.age = age;
+        this.contact = contact;
+    }
+
+    public Employee() {
+    }
+
     @Override
     public String toString() {
         return "Employee{" +
