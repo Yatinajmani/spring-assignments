@@ -6,7 +6,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class DefaultController {
     @GetMapping("/exercise1")
-    public String getExercise1(){
+    public String getExercise1() {
         return "Exercise1";
+    }
+
+    @GetMapping("/exercise2")
+    public String getExercise2() {
+        return "Exercise2";
     }
 }
