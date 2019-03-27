@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise 5</title>
+</head>
+<body>
+<div th:each="employee:${employees}">
+    <span th:text="${employee.isAdmin}?'Hello Admin':'Hello User'"></span>
+    <span th:text="${employee.name}"></span>
+</div>
+</body>
+</html>

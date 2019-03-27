@@ -4,11 +4,27 @@ public class Employee {
     private String name;
     private Integer age;
     private Long contact;
+    private Boolean isAdmin;
+
+    public Boolean getIsAdmin() {
+        return isAdmin;
+    }
+
+    public void setIsAdmin(Boolean admin) {
+        isAdmin = admin;
+    }
 
     public Employee(String name, Integer age, Long contact) {
         this.name = name;
         this.age = age;
         this.contact = contact;
+    }
+
+    public Employee(String name, Integer age, Long contact, Boolean isAdmin) {
+        this.name = name;
+        this.age = age;
+        this.contact = contact;
+        this.isAdmin = isAdmin;
     }
 
     public Employee() {
@@ -20,6 +36,7 @@ public class Employee {
                 "name='" + name + '\'' +
                 ", age=" + age +
                 ", contact=" + contact +
+                ", isAdmin=" + isAdmin +
                 '}';
     }
 
@@ -46,4 +63,5 @@ public class Employee {
     public void setContact(Long contact) {
         this.contact = contact;
     }
+
 }

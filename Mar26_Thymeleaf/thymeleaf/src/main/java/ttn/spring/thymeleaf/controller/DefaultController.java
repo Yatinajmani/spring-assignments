@@ -35,10 +35,18 @@ public class DefaultController {
     }
 
     @GetMapping("/exercise4")
-    public String getEmployess(Model model) {
+    public String getEmployees(Model model) {
         model.addAttribute("employees", Arrays.asList(new Employee("Yatin", 24, 954646511L)
                 , new Employee("Siddharth", 24, 9546465158L)));
         return "Exercise4";
+    }
+
+    @GetMapping("/exercise5")
+    public String getAdmin(Model model) {
+        model.addAttribute("employees", Arrays.asList(new Employee("Yatin",
+                24, 954646511L, false), new Employee("Siddharth",
+                24, 9546465158L, true)));
+        return "Exercise5";
     }
 
 }
