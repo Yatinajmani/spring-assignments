@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise 3</title>
+</head>
+<body>
+<form method="post" th:action="@{/register}" th:object="${employee}">
+    <input th:field="*{name}" type="text" placeholder="Enter Name" required/>
+    <input th:field="*{age}" type="number" placeholder="Enter Age" required/>
+    <input th:field="*{contact}" type="text" placeholder="Enter contact number" required/>
+    <input type="submit" th:value="submit"/>
+</form>
+</body>
+</html>
