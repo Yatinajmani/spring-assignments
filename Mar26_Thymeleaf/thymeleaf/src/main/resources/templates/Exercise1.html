@@ -5,7 +5,9 @@
     <title>Exercise 1</title>
 </head>
 <body>
+<header th:replace="partials :: header"></header>
 <button onClick="alertMessage()">Click Button</button>
+<footer th:replace="partials :: footer"></footer>
 </body>
 <script th:src="@{/q1.js}"></script>
 </html>

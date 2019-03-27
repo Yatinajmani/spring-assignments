@@ -2,16 +2,20 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Exercise 3</title>
+    <title>Exercise 10</title>
 </head>
 <body>
 <header th:replace="partials :: header"></header>
-<form method="post" th:action="@{/register}" th:object="${employee}">
+<form method="post" id="register" th:object="${employee}">
     <input th:field="*{name}" type="text" placeholder="Enter Name" required/>
     <input th:field="*{age}" type="number" placeholder="Enter Age" required/>
     <input th:field="*{contact}" type="text" placeholder="Enter contact number" required/>
     <input type="submit" th:value="submit"/>
 </form>
+<img th:src="@{/loader.gif}" id="loader"/>
+<div id="data"></div>
 <footer th:replace="partials :: footer"></footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+<script th:src="@{/q10.js}"></script>
 </body>
 </html>

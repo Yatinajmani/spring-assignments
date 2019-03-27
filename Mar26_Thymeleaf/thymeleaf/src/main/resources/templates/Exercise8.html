@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise 8</title>
+</head>
+<body>
+<header th:replace="partials :: header"></header>
+<table border="1">
+    <tr th:each="employee,itr:${employees}" th:style="${itr.odd}?'color:red':''">
+        <td th:text="${employee.name}">
+        </td>
+        <td th:text="${employee.age}">
+        </td>
+        <td th:text="${employee.contact}">
+        </td>
+    </tr>
+</table>
+<footer th:replace="partials :: footer"></footer>
+</body>
+</html>

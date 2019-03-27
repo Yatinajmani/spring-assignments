@@ -2,12 +2,16 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Exercise 2</title>
-    <link rel="stylesheet" th:href="@{/q2.css}"/>
+    <title>Exercise 9</title>
 </head>
 <body>
 <header th:replace="partials :: header"></header>
-Hello World
+<table border="1">
+    <tr th:each="userType:${T(ttn.spring.thymeleaf.entity.UserType).values()}">
+        <td th:text="${userType.getMessage()}">
+        </td>
+    </tr>
+</table>
 <footer th:replace="partials :: footer"></footer>
 </body>
 </html>

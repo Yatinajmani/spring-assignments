@@ -5,6 +5,7 @@
     <title>Exercise 4</title>
 </head>
 <body>
+<header th:replace="partials :: header"></header>
     <table border="1">
         <tr th:each="employee:${employees}">
             <td th:text="${employee.name}">
@@ -15,5 +16,6 @@
             </td>
         </tr>
     </table>
+<footer th:replace="partials :: footer"></footer>
 </body>
 </html>

@@ -5,9 +5,11 @@
     <title>Exercise 5</title>
 </head>
 <body>
+<header th:replace="partials :: header"></header>
 <div th:each="employee:${employees}">
     <span th:text="${employee.isAdmin}?'Hello Admin':'Hello User'"></span>
     <span th:text="${employee.name}"></span>
 </div>
+<footer th:replace="partials :: footer"></footer>
 </body>
 </html>
