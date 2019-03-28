@@ -9,41 +9,47 @@ import javax.persistence.Id;
 import javax.validation.constraints.Size;
 
 @Entity
-public class Student {
+public class Student2 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JsonIgnore
     private Long id;
 
-    @Size(min = 5, message = "Name should have at least 5 characters")
-    private String name;
+    @Size(min = 5, message = "First Name should have at least 5 characters")
+    private String firstName;
+    @Size(min = 5, message = "Last Name should have at least 5 characters")
+    private String lastName;
     private Integer age;
     private Long contact;
 
-    public Student(String name, Integer age, Long contact) {
-        this.name = name;
+
+    public Student2(String firstName, String lastName, Integer age, Long contact) {
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.age = age;
         this.contact = contact;
     }
 
-    public Student() {
+    public Student2() {
     }
 
     @Override
     public String toString() {
-        return "Student{" +
-                "name='" + name + '\'' +
+        return "Student2{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
                 ", age=" + age +
                 ", contact=" + contact +
                 '}';
     }
 
-    public String getName() {
-        return name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
     public Integer getAge() {
@@ -68,5 +74,13 @@ public class Student {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 }
